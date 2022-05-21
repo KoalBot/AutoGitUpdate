@@ -6,6 +6,7 @@ const https = require('https');
 const appRootPath = require('app-root-path');
 const git = require('simple-git');
 const Logger = require('chegs-simple-logger');
+const copy = require('copy');
 
 /** 
  * @typedef {Object} Config - Configuration for Auto Git Update
@@ -157,7 +158,7 @@ async function backupApp() {
     let destination = path.join(config.tempLocation, backupSubdirectory);
     log.detail('Auto Git Update - Backing up app to ' + destination);
     await fs.ensureDir(destination);
-    await fs.copy(appRootPath.path, destination, {dereference: true});
+    await new Promise((resolve, reject) => copy(`${appRootPath.path}/**/!node_modules`, destination, (err) => err ? reject(err) : resolve()));
     return true;
 }
 

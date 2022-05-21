@@ -19,6 +19,7 @@
   "dependencies": {
     "app-root-path": "^3.0.0",
     "chegs-simple-logger": "^1.1.0",
+    "copy": "^0.3.2",
     "fs-extra": "^8.1.0",
     "simple-git": "^3.0.0"
   }
