@@ -237,7 +237,7 @@ async function installUpdate() {
     log.detail('Auto Git Update - Source: ' + source);
     log.detail('Auto Git Update - Destination: ' + destination);
     await fs.ensureDir(destination);
-    await fs.copy(source, destination);
+    await fs.move(source, destination, { overwrite: true });
     return true;
 }
 
