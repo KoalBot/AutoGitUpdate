@@ -7,6 +7,7 @@ interface Config {
 	ignoreFiles?: string[];
 	executeOnComplete?: string;
 	exitOnComplete: boolean;
+	packageManager?: string;
 }
 
 export default class AutoGitUpdate {

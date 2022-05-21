@@ -36,7 +36,8 @@ const config = {
     tempLocation: 'C:/Users/scheg/Desktop/tmp/',
     ignoreFiles: ['util/config.js'],
     executeOnComplete: 'C:\\Users\\scheg\\Desktop\\worksapce\\AutoGitUpdate\\startTest.bat',
-    exitOnComplete: true
+    exitOnComplete: true,
+    packageManager: "npm"
 }
 
 const updater = new AutoGitUpdate(config);

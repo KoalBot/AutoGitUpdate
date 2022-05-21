@@ -19,6 +19,7 @@ const copy = require('copy');
  * @property {Array[String]} ignoreFiles - An array of files to not install when updating. Useful for config files. 
  * @property {String} executeOnComplete - A command to execute after an update completes. Good for restarting the app.
  * @property {Boolean} exitOnComplete - Use process exit to stop the app after a successful update.
+ * @property {String} packageManager - The package manager to use to install the dependencies
  */
 
 /** @type {Config} */
@@ -193,7 +194,7 @@ function installDependencies() {
         let destination = testing ? path.join(appRootPath.path, '/testing/'): appRootPath.path;
         log.detail('Auto Git Update - Installing application dependencies in ' + destination);
         // Generate and execute command
-        let command = `cd ${destination} && npm install`;
+        let command = `cd ${destination} && ${config.packageManager ?? "npm"} install`;
         let child = exec(command);
 
         // Wait for results
